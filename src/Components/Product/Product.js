@@ -11,10 +11,10 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { AddShoppingCart, Rotate90DegreesCcwSharp } from '@material-ui/icons';
 import ImageProduct1 from '../../Assets/ecommerce-product-page-main/images/cannabis-gde9b3c753_1920.jpg';
 import ImageAvatar from '../../Assets/ecommerce-product-page-main/images/image-avatar.png';
@@ -44,10 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Product() {
+export default function Product({ Product: { id, name, productType, image, price, rating, description } }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -57,7 +56,7 @@ export default function Product() {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            <img src={ImageAvatar} alt='avatar image'></img>
+            <img src={ImageAvatar} alt='avatar'></img>
           </Avatar>
         }
         action={
@@ -66,22 +65,21 @@ export default function Product() {
             variant='h5'
             color='textSecondary'
           >
-            {accounting.formatMoney(50)}
+            {accounting.formatMoney(price)}
           </Typography>
         }
-        title="Porro"
+        title={name}
         subheader="In Stock"
       />
       <CardMedia
         className={classes.media}
-        title="cannabis"
-        image={ImageProduct1}
+        title={name}
+        image={image}
+        key={id}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Los humanos han cultivado desde tiempos prehistóricos esta planta por sus numerosos usos:
-          como fuente de fibra textil, para extraer el aceite de sus semillas, como planta
-          medicinal —hay registros escritos sobre este uso que datan de 2737 a. C.—,3​ y como psicotrópico.
+          {productType}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -89,11 +87,11 @@ export default function Product() {
           <AddShoppingCart />
         </IconButton>
         <IconButton aria-label="share">
-          {Array(4)
-          .fill()
-          .map((_, i) => (
-            <p>&#11088;</p>
-          ))}
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <p>&#11088;</p>
+            ))}
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
@@ -110,16 +108,10 @@ export default function Product() {
         <CardContent>
           <Typography paragraph>Info:</Typography>
           <Typography paragraph>
-            holuuuuuus
+            {description}
           </Typography>
-          <Typography paragraph>
-            C. ruderalis may be included within C. sativa; all three may be treated as subspecies
-            of a single species, C. sativa;[1][3][4][5] or C. sativa may be accepted as a single
-            undivided species.[6] The genus is widely accepted as being indigenous to and
-            originating from Asia.
-          </Typography>
-      
-         
+
+
         </CardContent>
       </Collapse>
     </Card>
