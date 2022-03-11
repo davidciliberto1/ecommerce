@@ -1,3 +1,4 @@
+import CheckoutCard from './Components/CheckoutCard/checkoutCard';
 import CheckoutPage from './Components/CheckoutPage/checkoutPage';
 import Navbar from './Components/Navbar/Navbar';
 import Product from './Components/Product/Product';
@@ -7,9 +8,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <CheckoutPage /> */}
-      <Products />
-{/* <Product />  */}
+      <CheckoutPage />
+      {/* <CheckoutCard /> */}
+      {/* <Products />
+<Product />  */}
    </div>
   );
 }

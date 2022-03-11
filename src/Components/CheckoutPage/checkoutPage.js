@@ -2,9 +2,10 @@ import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
-// import CheckoutCard from '../CheckoutCard';
+import CheckoutCard from '../CheckoutCard/checkoutCard';
 import productData from '../../Data';
 import Product from '../Product/Product';
+import Total from '../Total/Total';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,11 +21,11 @@ const CheckoutPage = () => {
     function FormRow() {
         return (
             <React.Fragment>
-                {productData.map((item) => (
+                {productData.map((product) => (
                     <Grid item xs={12} sm={8} md={6} lg={4}>
-                        <Product 
-                        key={item.id}
-                        product={item}
+                        <CheckoutCard 
+                        key={product.id}
+                        Product={product}
                         />
                     </Grid>
                 ))}
@@ -41,11 +42,11 @@ const CheckoutPage = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={8} md={9} container spacing={2}>
-                    
+                    <FormRow />
                 </Grid>
                 <Grid item xs={12} sm={4} md={3}>
                     <Typography align='center' gutterBottom variant='h4'>
-                        total
+                        <Total />
                     </Typography>
                 </Grid>
             </Grid>
