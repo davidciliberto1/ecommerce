@@ -15,6 +15,8 @@ import ImageProduct1 from '../../Assets/ecommerce-product-page-main/images/canna
 import ImageAvatar from '../../Assets/ecommerce-product-page-main/images/image-avatar.png';
 import accounting from 'accounting';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useStateValue } from '../../StateProvider';
+import { actionTypes } from '../../reducer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,12 +38,20 @@ cardRating: {
 }));
 
 export default function CheckoutCard({ Product: { id, name, productType, image, price, rating, description } }) {
-    const classes = useStyles();
+    const classes = useStyles();    
     const [expanded, setExpanded] = React.useState(false);
+    const [{ basket }, dispatch] = useStateValue();
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    const removeItem = () => 
+        dispatch({
+            type: actionTypes.REMOVE_ITEM,
+            id,
+        })
+    
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -80,7 +90,10 @@ export default function CheckoutCard({ Product: { id, name, productType, image, 
                 
            
             <IconButton>
-           <DeleteIcon fontSize='large'/>
+           <DeleteIcon 
+           fontSize='large'
+           onClick={removeItem}
+           />
            </IconButton>
            </CardActions>
         </Card>

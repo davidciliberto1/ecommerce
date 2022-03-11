@@ -19,6 +19,8 @@ import { AddShoppingCart, Rotate90DegreesCcwSharp } from '@material-ui/icons';
 import ImageProduct1 from '../../Assets/ecommerce-product-page-main/images/cannabis-gde9b3c753_1920.jpg';
 import ImageAvatar from '../../Assets/ecommerce-product-page-main/images/image-avatar.png';
 import accounting from 'accounting';
+import { actionTypes } from '../../reducer';
+import { useStateValue } from '../../StateProvider';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,10 +48,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Product({ Product: { id, name, productType, image, price, rating, description } }) {
   const classes = useStyles();
+  const [{ basket }, dispatch] = useStateValue();
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const addToBasket = () => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        id,
+        name,
+        productType,
+        image,
+        price,
+        rating,
+        description,
+      }
+    })
+  }
 
   return (
     <Card className={classes.root}>
@@ -83,8 +101,11 @@ export default function Product({ Product: { id, name, productType, image, price
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to Cart">
-          <AddShoppingCart />
+        <IconButton
+          aria-label="add to Cart"
+          onClick={addToBasket}
+        >
+          <AddShoppingCart fontSize='large' />
         </IconButton>
         <IconButton aria-label="share">
           {Array(rating)

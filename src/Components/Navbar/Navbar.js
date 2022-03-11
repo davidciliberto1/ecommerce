@@ -9,6 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import cannabisLogo from '../../Assets/ecommerce-product-page-main/images/cannabisLogo.png';
 import { ShoppingCart } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { useStateValue } from '../../StateProvider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,15 +41,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
     const classes = useStyles();
+    const [{ basket }, dispatch] = useStateValue();
 
     return (
         <div className={classes.root}>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <img src={cannabisLogo} alt='cannabis Logo' className={classes.image}
-                        ></img>
-                    </IconButton>
+                    <Link to='/'>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <img
+                                src={cannabisLogo}
+                                alt='cannabis Logo'
+                                height='25px'
+                                className={classes.image}
+                            >
+                            </img>
+                        </IconButton>
+                    </Link>
                     <div className={classes.grow} />
                     <Typography variant="h6" color='textPrimary' component='p'>
                         Holis Deivid
@@ -56,11 +66,13 @@ export default function Navbar() {
                         <Button variant='outlined'>
                             <strong>sign in</strong>
                         </Button>
+                        <Link to='checkout-page'>
                         <IconButton aria-label='show cart items' color='inherit' >
-                            <Badge badgeContent={2} color='secondary'>
+                            <Badge badgeContent={basket?.length} color='secondary'>
                                 <ShoppingCart fontSize='large' color='primary' />
                             </Badge>
                         </IconButton>
+                        </Link>
                     </div>
                 </Toolbar>
             </AppBar>

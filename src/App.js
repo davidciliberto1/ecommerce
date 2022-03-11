@@ -3,16 +3,21 @@ import CheckoutPage from './Components/CheckoutPage/checkoutPage';
 import Navbar from './Components/Navbar/Navbar';
 import Product from './Components/Product/Product';
 import Products from './Components/Products/Products';
+import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <CheckoutPage />
-      {/* <CheckoutCard /> */}
-      {/* <Products />
-<Product />  */}
-   </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path='/checkout-page' element={<CheckoutPage />}>
+          </Route>
+          <Route path='/' element={<Products />}>
+          </Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
