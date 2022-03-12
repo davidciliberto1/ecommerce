@@ -24,27 +24,33 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
-cardActions: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    textAlign: 'center',
-},
-cardRating: {
-    display: 'flex',
-},
+    cardActions: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        textAlign: 'center',
+    },
+    cardRating: {
+        display: 'flex',
+    },
 }));
 
-export default function CheckoutCard({ Product: { id, name, productType, image, price, rating, description } }) {
-    const classes = useStyles();    
+export default function CheckoutCard({
+     Product: { id, name, productType, image, price, rating, description },
+ }) {
+    const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [{ basket }, dispatch] = useStateValue();
 
-     const removeItem = () => 
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+    const removeItem = () =>
         dispatch({
             type: actionTypes.REMOVE_ITEM,
-            id,
+            id: id,
         })
-    
+
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -80,12 +86,12 @@ export default function CheckoutCard({ Product: { id, name, productType, image, 
                             <p>&#11088;</p>
                         ))}
                 </div>
-                
-           
-            <IconButton  onClick={removeItem}>
-           <DeleteIcon fontSize='large'/>
-           </IconButton>
-           </CardActions>
+
+
+                <IconButton onClick={removeItem}>
+                    <DeleteIcon fontSize='large' />
+                </IconButton>
+            </CardActions>
         </Card>
     );
 }

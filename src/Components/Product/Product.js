@@ -13,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { AddShoppingCart  } from '@material-ui/icons';
-import ImageProduct1 from '../../Assets/ecommerce-product-page-main/images/cannabis-gde9b3c753_1920.jpg';
 import ImageAvatar from '../../Assets/ecommerce-product-page-main/images/image-avatar.png';
 import accounting from 'accounting';
 import { actionTypes } from '../../reducer';
@@ -55,13 +54,13 @@ export default function Product({ Product: { id, name, productType, image, price
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-        id,
-        name,
-        productType,
-        image,
-        price,
-        rating,
-        description,
+       id: id,
+        name: name,
+        productType: productType,
+        image: image,
+        price: price,
+        rating: rating,
+        description: description,
       }
     })
   }
