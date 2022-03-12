@@ -62,9 +62,11 @@ export default function Navbar() {
                         Holis Deivid
                     </Typography>
                     <div className={classes.button}>
+                        <Link to='signin'>
                         <Button variant='outlined'>
                             <strong>sign in</strong>
                         </Button>
+                        </Link>
                         <Link to='checkout-page'>
                         <IconButton aria-label='show cart items' color='inherit' >
                             <Badge badgeContent={basket?.length} color='secondary'>
