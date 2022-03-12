@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -9,9 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 
-import ImageProduct1 from '../../Assets/ecommerce-product-page-main/images/cannabis-gde9b3c753_1920.jpg';
 import ImageAvatar from '../../Assets/ecommerce-product-page-main/images/image-avatar.png';
 import accounting from 'accounting';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -42,11 +39,7 @@ export default function CheckoutCard({ Product: { id, name, productType, image, 
     const [expanded, setExpanded] = React.useState(false);
     const [{ basket }, dispatch] = useStateValue();
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
-
-    const removeItem = () => 
+     const removeItem = () => 
         dispatch({
             type: actionTypes.REMOVE_ITEM,
             id,
@@ -89,11 +82,8 @@ export default function CheckoutCard({ Product: { id, name, productType, image, 
                 </div>
                 
            
-            <IconButton>
-           <DeleteIcon 
-           fontSize='large'
-           onClick={removeItem}
-           />
+            <IconButton  onClick={removeItem}>
+           <DeleteIcon fontSize='large'/>
            </IconButton>
            </CardActions>
         </Card>

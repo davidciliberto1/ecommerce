@@ -1,6 +1,3 @@
-import Product from "./Components/Product/Product"
-import Products from "./Components/Products/Products"
-
 export const initialState = {
     basket: []
 }
@@ -28,7 +25,7 @@ const reducer = (state, action) => {
                 let newBasket = [...state.basket];
                 if(index >= 0) {
                     newBasket.splice(index, 1)
-                } else{console.log('cant remove product');}
+                } else{console.log('cant remove product')}
                 return {
                     ...state,
                     basket: newBasket,

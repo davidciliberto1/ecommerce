@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const Total = () => {
     const classes = useStyles();
     const [{ basket }, dispatch] = useStateValue();
-console.log(getBasketTotal(basket));
+console.log(basket.price);
     return (
         <div className={classes.root}>
             <h5>Total items: {basket?.length}</h5>
