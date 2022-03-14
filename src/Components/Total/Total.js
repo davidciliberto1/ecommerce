@@ -22,11 +22,16 @@ const Total = () => {
     const classes = useStyles();
     const [{ basket }, dispatch] = useStateValue();
     // console.log(getBasketTotal(basket));
-        return (
+    return (
         <div className={classes.root}>
             <h5>Total items: {basket?.length}</h5>
             <h5>{accounting.formatMoney(getBasketTotal(basket))}</h5>
-            <Button className={classes.button} variant='contained' color='secondary'>Checkout</Button>
+            <Button
+                className={classes.button}
+                variant='contained'
+                color='secondary'
+            >Checkout
+            </Button>
         </div>
     )
 }
