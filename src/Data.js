@@ -63,5 +63,14 @@ const productData = [
         image: 'https://images.unsplash.com/photo-1560999448-1288f5c62468?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
         description: 'Las comidas y bebidas de cannabis, también llamadas comestibles de cannabis (del inglés, cannabis edibles), son comidas y bebidas hechas con cannabis o alguno de sus derivados. Algunos ingredientes de cannabis son la mantequilla de Marrakesh, o la tintura de cannabis; Algunas preparaciones culinarias de cannabis son los space cakes («pasteles espaciales») o el majún. Algunas bebidas de cannabis son el té de cannabis o el bhang.'
     },
+    {
+        id: 9,
+        name: 'LSD',
+        productType: 'lsd',
+        price: 10000,
+        rating: 5,
+        image: 'https://cdn.pixabay.com/photo/2021/02/15/22/50/sativa-6019410_960_720.jpg',
+        description: 'benny hermoso'
+    },
 ]
 export default productData;
