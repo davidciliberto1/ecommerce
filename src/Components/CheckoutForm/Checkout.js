@@ -111,3 +111,33 @@ export default function Checkout() {
     </ThemeProvider>
   );
 }
+// import { Paper, StepLabel, Stepper, Typography, Step } from '@material-ui/core';
+// import useStyles from './styles';
+
+// const Checkout = () => {
+//   const classes = useStyles();
+//   const steps = ['Shipping address', 'Payment details']
+//   return (
+//     <div>
+//       <main className={classes.layout}>
+//         <Paper className={classes.layout}>
+//           <Typography component='h1' variant='h4' align='center'>
+//             Checkout
+//           </Typography>
+//           <Stepper activeStep={0} variant='h4' className={classes.stepper}>
+//             {steps.map(step => (
+//               <Step key={step}>
+//                 <StepLabel>
+//                   {step}
+//                 </StepLabel>
+//               </Step>
+//             ))}
+//           </Stepper>
+//         </Paper>
+//       </main>
+
+//     </div>
+//   )
+// }
+
+// export default Checkout;

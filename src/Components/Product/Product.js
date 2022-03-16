@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { AddShoppingCart  } from '@material-ui/icons';
+import { AddShoppingCart } from '@material-ui/icons';
 import ImageAvatar from '../../Assets/ecommerce-product-page-main/images/image-avatar.png';
 import accounting from 'accounting';
 import { actionTypes } from '../../reducer';
@@ -54,7 +54,7 @@ export default function Product({ Product: { id, name, productType, image, price
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-       id: id,
+        id: id,
         name: name,
         productType: productType,
         image: image,
