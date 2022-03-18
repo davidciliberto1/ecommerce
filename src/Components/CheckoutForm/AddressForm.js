@@ -55,7 +55,7 @@ return (
           required
           id="firstName"
           name="firstName"
-          label={FirstName}
+          label="First Name"
           fullWidth
           autoComplete="given-name"
           variant="standard"

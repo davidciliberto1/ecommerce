@@ -9,6 +9,7 @@ import { auth } from './firebase';
 import { actionTypes } from './reducer';
 import { useStateValue } from './StateProvider';
 import Checkout from './Components/CheckoutForm/Checkout';
+import './App.css';
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
